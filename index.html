@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Train Logbook</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+	<script src="main.js"></script>
+	<meta name="mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<link rel="apple-touch-startup-image" href="/favicon.png">
+	<link rel="apple-touch-icon" href="favicon.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="touch-icon-ipad.png"/>
+	<link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png"/>
+	<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png"/>
+</head>
+<body>
+	<h1>Train Logbook</h1>
+	<form action="javascript:addLog()">
+		<input id="operatorinput" type="text" placeholder="Operator">
+		<input id="trainidinput" type="text" placeholder="Train ID">
+		<input id="notesinput" type="text" placeholder="Notes">
+		<button action="addLog()" id="savebtn">Save</button>
+	</form>
+	<hr>
+	<details>
+		<summary>Options</summary>
+		<form action="">
+			<input disabled type="checkbox" name="defaultoperator" id="defaultoperator">
+			<label for="defaultoperator">Fallback to default operator if none is written</label>
+			<p><small>You can use this in case if you ride the same line every day and don't want to waste time filling the operator field.</small></p>
+			<input type="text" placeholder="Default Operator Name" disabled>
+			<hr>
+			<h3>Data Management</h3>
+			<p>Your data is only saved locally and not backed up to anywhere automatically. To prevent data loss or in case you're moving to another device, you can export your data.</p>
+			<button disabled>Export data as JSON</button>
+			<br>
+			<button disabled>Copy data to pasteboard</button>
+			<br>
+			<button disabled>Import data</button>
+			<hr>
+			<button onclick="eraseAllData()">Erase all data</button>
+		</form>
+	</details>
+	<hr>
+	<h2>Previous Logs</h2>
+	<table id="logstable">
+	</table>
+</body>
+</html>
